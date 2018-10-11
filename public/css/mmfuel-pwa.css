@@ -1,0 +1,98 @@
+body {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.appHeader {
+    width: 100%;
+    height: 64px;
+    background-color: #f7f7f7;
+}
+
+.appHeaderBorder {
+    width: 100%;
+    height: 1px;
+    background-color: #4f4f4f;
+}
+
+.appHeaderTitle {
+    position : absolute;
+    left: 0px;
+    top: 20px;
+    width: 100%;
+    height: 44px;
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:18px;
+    font-weight:normal;
+    color:#4f4f4f;
+    text-align:center;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.latestAndAverageTitleText {
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:18px;
+    font-weight:normal;
+    color:#4f4f4f;
+}
+
+.latestTitle {
+    position : absolute;
+    left: 0px;
+    top: 80px;
+    width: 100%;
+    height: 25px;
+    text-align:center;
+    line-height: 25px;
+    vertical-align: middle;
+}
+
+.averageTitle {
+    position : absolute;
+    left: 0px;
+    top: 220px;
+    width: 100%;
+    height: 25px;
+    text-align:center;
+    line-height: 25px;
+    vertical-align: middle;
+}
+
+.fuelValueText {
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:80px;
+    font-weight:normal;
+    color:#4f4f4f;
+}
+
+.fuelUnitText {
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:18px;
+    font-weight:normal;
+    color:#4f4f4f;
+}
+
+.latestValue {
+    position : absolute;
+    left: 0px;
+    top: 115px;
+    width: 100%;
+    height: 80px;
+    text-align:center;
+    line-height: 80px;
+    vertical-align: bottom;
+}
+
+.averageValue {
+    position : absolute;
+    left: 0px;
+    top: 255px;
+    width: 100%;
+    height: 80px;
+    text-align:center;
+    line-height: 80px;
+    vertical-align: bottom;
+}
