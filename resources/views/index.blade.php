@@ -26,7 +26,7 @@
         <div class="appHeaderBorder"></div>
         <div class="latestTitle latestAndAverageTitleText">Latest</div>
         <div class="latestValue">
-            <em class="fuelValueText">12.34</em>
+            <em class="fuelValueText">{{sprintf('%.1f',$latestRate)}}</em>
             <em class="fuelUnitText">km/l</em>
         </div>
         <div class="averageTitle latestAndAverageTitleText">Average</div>
