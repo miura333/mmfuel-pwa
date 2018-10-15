@@ -21,7 +21,7 @@
     </head>
     <body>
         <div class="appHeader">
-            <div class="appHeaderTitle">HeaderText</div>
+            <div class="appHeaderTitle">{{$carName}}</div>
         </div>
         <div class="appHeaderBorder"></div>
         <div class="latestTitle latestAndAverageTitleText">Latest</div>
@@ -31,7 +31,7 @@
         </div>
         <div class="averageTitle latestAndAverageTitleText">Average</div>
         <div class="averageValue">
-            <em class="fuelValueText">12.34</em>
+            <em class="fuelValueText">{{sprintf('%.1f',$averageRate)}}</em>
             <em class="fuelUnitText">km/l</em>
         </div>
     </body>
