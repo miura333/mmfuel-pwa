@@ -11,10 +11,15 @@ use Illuminate\Http\Request;
 class indexController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
+        $carId = 1;
+        if(isset($request->carId)){
+            $carId = $request->carId;
+        }
+
         $fuelRecordModel = new fuelRecordModel();
-        $records = $fuelRecordModel->where('user_id', 1)->where('car_id', 1)->orderBy('date', 'desc')->get();
+        $records = $fuelRecordModel->where('user_id', 1)->where('car_id', $carId)->orderBy('date', 'desc')->get();
 
         $latestRate = 0.0;
         $averageRate = 0.0;
@@ -24,11 +29,11 @@ class indexController extends Controller
         }
 
         $carModel = new carModel();
-        $car = $carModel->where('id', 1)->get();
+        $car = $carModel->where('id', $carId)->get();
 
         $carName = $car[0]->car_name;
 
-        return view('index')->with(['latestRate' => $latestRate, 'averageRate' => $averageRate, 'carName' => $carName, 'carId' => 1]);
+        return view('index')->with(['latestRate' => $latestRate, 'averageRate' => $averageRate, 'carName' => $carName, 'carId' => $carId]);
     }
 
     private function getAverageRate($records)

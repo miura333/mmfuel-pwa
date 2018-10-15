@@ -31,7 +31,7 @@ if ('serviceWorker' in navigator) {
 </div>
 <div class="historyButtonParent">
     <div class="addHistoryButton">
-        <div class="addHistoryButtonText"><a class="linkButtonText" href="http://www.example.com">history</a></div>
+        <div class="addHistoryButtonText"><a class="linkButtonText" href="/history/{{$carId}}">history</a></div>
     </div>
 </div>
 <script>

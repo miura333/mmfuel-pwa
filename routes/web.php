@@ -16,3 +16,6 @@
 // });
 
 Route::get('/', 'indexController@index');
+Route::get('/{carId}', 'indexController@index');
+
+Route::get('history/{carId}', 'historyController@index');

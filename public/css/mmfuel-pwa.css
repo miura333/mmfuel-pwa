@@ -32,6 +32,24 @@ body {
     vertical-align: middle;
 }
 
+.appHeaderBackButton {
+    position : absolute;
+    left: 0px;
+    top: 20px;
+    width: 100%;
+    height: 44px;
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:18px;
+    font-weight:normal;
+    text-align:left;
+    line-height: 44px;
+    vertical-align: middle;
+}
+
+.linkBackButtonText {
+    text-decoration: none;
+}
+
 .latestAndAverageTitleText {
     font-family:'Hiragino Kaku Gothic Pro','Meiryo';
     font-size:18px;
@@ -136,4 +154,45 @@ body {
 .linkButtonText {
     text-decoration: none;
     color:#4f4f4f;
+}
+
+/* 履歴画面 */
+.historyCell {
+    width: 100%;
+    height: 72px;
+    background-color: #ffffff;
+}
+
+.historyCellColl1 {
+    width: 100%;
+    height: 42px;
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:22px;
+    font-weight:normal;
+    color:#4f4f4f;
+    line-height: 42px;
+    vertical-align: middle;
+}
+
+.historyCellColl2 {
+    width: 100%;
+    height: 30px;
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:14px;
+    font-weight:normal;
+    color:#4f4f4f;
+    line-height: 30px;
+    vertical-align: middle;
+}
+
+.historyTextFuelRate {
+    text-align:right;
+}
+
+.historyTextFuel {
+    text-align:center;
+}
+
+.historyTextPrice {
+    text-align:right;
 }
