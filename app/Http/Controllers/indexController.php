@@ -28,7 +28,7 @@ class indexController extends Controller
 
         $carName = $car[0]->car_name;
 
-        return view('index')->with(['latestRate' => $latestRate, 'averageRate' => $averageRate, 'carName' => $carName]);
+        return view('index')->with(['latestRate' => $latestRate, 'averageRate' => $averageRate, 'carName' => $carName, 'carId' => 1]);
     }
 
     private function getAverageRate($records)
