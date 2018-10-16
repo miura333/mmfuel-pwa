@@ -19,7 +19,7 @@
             <tr>
                 <td width="5%"></td>
                 <td width="45%">{{date('Y/m/d', $record->date)}}</td>
-                <td width="45%" class="historyTextFuelRate">{{$record->fuel_rate}} km/l</td>
+                <td width="45%" class="historyTextFuelRate">{{sprintf('%.3f',$record->fuel_rate)}} km/l</td>
                 <td width="5%"></td>
             </tr>
         </table>

@@ -19,3 +19,6 @@ Route::get('/', 'indexController@index');
 Route::get('/{carId}', 'indexController@index');
 
 Route::get('history/{carId}', 'historyController@index');
+
+Route::get('add/{carId}', 'addController@index');
+Route::post('add/', 'addController@add');

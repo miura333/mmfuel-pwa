@@ -196,3 +196,51 @@ body {
 .historyTextPrice {
     text-align:right;
 }
+
+/* 入力画面 */
+.addInputForm {
+    width: 95%;
+    height: 52px;
+    border:0;
+    padding:10px;
+    outline: none;
+    text-align:right;
+}
+
+.addInputFormFuelNumber {
+    width: 77%;
+    height: 52px;
+    border:0;
+    padding:10px;
+    outline: none;
+    text-align:right;
+}
+
+.addInputFormFuelDecimal {
+    width: 8%;
+    height: 52px;
+    border:0;
+    padding:10px;
+    outline: none;
+    text-align:right;
+}
+
+.addInputFormText {
+    font-size:18px;
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    color:#4f4f4f;
+}
+
+.addSubmitButtonParent {
+    text-align:center;
+    vertical-align: middle;
+}
+
+.addSubmitButton {
+    width: 128px;
+    height: 48px;
+    border: 2px solid #4f4f4f;
+    border-radius: 10px;
+    background-color: #ffffff;
+    margin-top : 20px;
+}
