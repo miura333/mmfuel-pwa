@@ -26,7 +26,7 @@ if ('serviceWorker' in navigator) {
 </div>
 <div class="addButtonParent">
     <div class="addHistoryButton">
-        <div class="addHistoryButtonText"><a class="linkButtonText" href="/add/{{$carId}}">add</a></div>
+        <div class="addHistoryButtonText"><a class="linkButtonText" href="/add/fuel/{{$carId}}">add</a></div>
     </div>
 </div>
 <div class="historyButtonParent">

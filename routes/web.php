@@ -23,5 +23,10 @@ Route::get('/{carId}', 'indexController@index')->middleware('auth');
 
 Route::get('history/{carId}', 'historyController@index')->middleware('auth');
 
-Route::get('add/{carId}', 'addController@index')->middleware('auth');
-Route::post('add/', 'addController@add')->middleware('auth');
+Route::get('add/fuel/{carId}', 'addController@index')->middleware('auth');
+Route::post('add/fuel/', 'addController@add')->middleware('auth');
+
+Route::get('add/car/', function () {
+    return view('addcar');
+})->middleware('auth');
+Route::post('add/car/', 'addController@addCar')->middleware('auth');

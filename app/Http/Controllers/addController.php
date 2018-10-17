@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\fuelRecordModel;
+use App\Model\carModel;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -47,5 +48,17 @@ class addController extends Controller
         $model->save();
 
         return redirect('/'.$request->carId);
+    }
+
+    public function addCar(Request $request)
+    {
+        Log::debug($request);
+
+        $model = new carModel();
+        $model->user_id = Auth::id();
+        $model->car_name = $request->carName;
+        $model->save();
+
+        return redirect('/'.$model->id);
     }
 }

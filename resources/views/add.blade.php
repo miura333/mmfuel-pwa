@@ -12,7 +12,7 @@
     </div>
 </div>
 <div class="appHeaderBorder"></div>
-{!! Form::open(['url' => 'add/', 'id' => 'formAdd']) !!}
+{!! Form::open(['url' => 'add/fuel/', 'id' => 'formAdd']) !!}
     {!! Form::hidden('carId', $carId) !!}
 <div class="historyCell">
     {!! Form::tel('trip', null, ['class' => 'addInputForm addInputFormText', 'placeholder' => 'trip']) !!}

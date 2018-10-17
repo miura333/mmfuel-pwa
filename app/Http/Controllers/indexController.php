@@ -13,7 +13,11 @@ class indexController extends Controller
     //
     public function index(Request $request)
     {
-        $carId = 1;
+        $carId = $this->getLatestCarId();
+        if($carId == 0) {
+            return redirect('/add/car/');
+        }
+
         if(isset($request->carId)){
             $carId = $request->carId;
         }
@@ -23,7 +27,7 @@ class indexController extends Controller
 
         $latestRate = 0.0;
         $averageRate = 0.0;
-        if(count($records) > 0) {
+        if(count($records) > 1) {   //2件以上ないと燃費計測できないため。
             $latestRate = $records[0]->fuel_rate;
             $averageRate = $this->getAverageRate($records);
         }
@@ -48,5 +52,14 @@ class indexController extends Controller
         }
 
         return ($totalFuelRate / $count);
+    }
+
+    private function getLatestCarId()
+    {
+        $carModel = new carModel();
+        $car = $carModel->where('user_id', Auth::id())->orderBy('id', 'desc')->get();
+        if(count($car) == 0) return 0;
+
+        return $car[0]->id;
     }
 }
