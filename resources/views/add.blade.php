@@ -6,13 +6,14 @@
             <tr>
                 <td width="20%"><a class="linkBackButtonText" href="/{{$carId}}">Back</a></td>
                 <td width="60%">Add</td>
-                <td width="20%"></td>
+                <td width="20%"><a id="btnSave" class="linkBackButtonText" href="javascript:void(0);">Save</a></td>
             </tr>
         </table>
     </div>
 </div>
 <div class="appHeaderBorder"></div>
-{!! Form::open(['url' => 'add/']) !!}
+{!! Form::open(['url' => 'add/', 'id' => 'formAdd']) !!}
+    {!! Form::hidden('carId', $carId) !!}
 <div class="historyCell">
     {!! Form::tel('trip', null, ['class' => 'addInputForm addInputFormText', 'placeholder' => 'trip']) !!}
 </div>
@@ -27,12 +28,14 @@
     {!! Form::tel('price', null, ['class' => 'addInputForm addInputFormText', 'placeholder' => 'price']) !!}
 </div>
 <div class="appHeaderBorder"></div>
-
-<div class="historyCell">
-    <div class="addSubmitButtonParent">
-        {!! Form::submit('登録', ['class' => 'addSubmitButton addInputFormText']) !!}
-    </div>
-</div>
 {!! Form::close() !!}
+
+<script type="text/javascript">
+$(document).ready(function () {
+    $("#btnSave").on('click', function () {
+        $('#formAdd').submit();
+    });
+});
+</script>
 
 @endsection
