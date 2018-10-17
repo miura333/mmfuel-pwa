@@ -26,6 +26,9 @@ Route::get('history/{carId}', 'historyController@index')->middleware('auth');
 Route::get('add/fuel/{carId}', 'addController@index')->middleware('auth');
 Route::post('add/fuel/', 'addController@add')->middleware('auth');
 
+Route::get('list/car/', 'carlistController@index')->middleware('auth');
+Route::get('list/car/{carId}', 'carlistController@index')->middleware('auth');
+
 Route::get('add/car/', function () {
     return view('addcar');
 })->middleware('auth');

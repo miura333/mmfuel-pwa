@@ -244,3 +244,19 @@ body {
     background-color: #ffffff;
     margin-top : 20px;
 }
+
+/* 車一覧 */
+.carlistCellColl {
+    position : absolute;
+    left: 5%;
+    width: 90%;
+    height: 72px;
+    font-family:'Hiragino Kaku Gothic Pro','Meiryo';
+    font-size:22px;
+    font-weight:normal;
+    color:#4f4f4f;
+    line-height: 72px;
+    align: center;
+    vertical-align: middle;
+    text-align:left;
+}
