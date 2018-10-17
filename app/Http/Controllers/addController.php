@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\fuelRecordModel;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use Input;
 use Log;
@@ -36,7 +37,7 @@ class addController extends Controller
         Log::debug($fuel." ".$fuelRate." ".$dateUnixtime);
 
         $model = new fuelRecordModel();
-        $model->user_id = 1;
+        $model->user_id = Auth::id();
         $model->car_id = $request->carId;
         $model->date = $dateUnixtime;
         $model->trip = $request->trip;

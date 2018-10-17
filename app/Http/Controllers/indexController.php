@@ -6,7 +6,7 @@ use App\Model\fuelRecordModel;
 use App\Model\carModel;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
 
 class indexController extends Controller
 {
@@ -19,7 +19,7 @@ class indexController extends Controller
         }
 
         $fuelRecordModel = new fuelRecordModel();
-        $records = $fuelRecordModel->where('user_id', 1)->where('car_id', $carId)->orderBy('date', 'desc')->get();
+        $records = $fuelRecordModel->where('user_id', Auth::id())->where('car_id', $carId)->orderBy('date', 'desc')->get();
 
         $latestRate = 0.0;
         $averageRate = 0.0;
