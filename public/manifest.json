@@ -1,7 +1,7 @@
 {
     "name": "mmfuel-pwa",
     "short_name": "pwa",
-    "background_color": "#fc980c",
+    "background_color": "#ffffff",
     "icons": [{
         "src": "./icon-180.png",
         "sizes": "180x180",
@@ -12,5 +12,6 @@
         "type": "image/png"
     }],
     "start_url": "./?utm_source=homescreen",
-    "display": "standalone"
+    "display": "standalone",
+    "theme_color": "#f7f7f7"
 }
