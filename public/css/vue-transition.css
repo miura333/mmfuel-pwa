@@ -1,0 +1,43 @@
+.forward-enter-active,
+.forward-leave-active {
+  /* アニメーションの時間、イージングなどを設定 */
+  transition: transform 500ms;
+}
+
+.forward-enter {
+  transform: translateX(100%);
+}
+
+.forward-enter-to {
+  transform: translateX(0%);
+}
+
+.forward-leave {
+  transform: translateX(0%);
+}
+
+.forward-leave-to {
+  transform: translateX(-100%);
+}
+
+.back-enter-active,
+.back-leave-active {
+  /* アニメーションの時間、イージングなどを設定 */
+  transition: transform 500ms;
+}
+
+.back-enter {
+  transform: translateX(-100%);
+}
+
+.back-enter-to {
+  transform: translateX(0%);
+}
+
+.back-leave {
+  transform: translateX(0%);
+}
+
+.back-leave-to {
+  transform: translateX(100%);
+}
