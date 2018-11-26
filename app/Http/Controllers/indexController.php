@@ -8,6 +8,8 @@ use App\Model\carModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use Log;
+
 class indexController extends Controller
 {
     public function getCarInfo(Request $request)
@@ -36,7 +38,10 @@ class indexController extends Controller
 
         $carName = $car[0]->car_name;
 
-        return ['latestRate' => sprintf('%.1f',$latestRate), 'averageRate' => sprintf('%.1f',$averageRate), 'carName' => $carName, 'carId' => $carId, 'history' => $records];
+        //hisotryは整形する
+
+
+        return ['latestRate' => sprintf('%.1f',$latestRate), 'averageRate' => sprintf('%.1f',$averageRate), 'carName' => $carName, 'carId' => $carId, 'history' => $this->formatHistory($records)];
 
     }
     //
@@ -90,5 +95,20 @@ class indexController extends Controller
         if(count($car) == 0) return 0;
 
         return $car[0]->id;
+    }
+    //履歴を整形する（Javascript側でやると面倒なため）
+    private function formatHistory($records)
+    {
+        // Log::debug($records);
+
+        $dstHistory = $records;
+        foreach($dstHistory as $fuelRecord){
+            $fuelRecord->date = date('Y/m/d', $fuelRecord->date);
+            $fuelRecord->fuel_rate = sprintf('%.3f',$fuelRecord->fuel_rate);
+        }
+
+        // Log::debug($dstHistory);
+
+        return $dstHistory;
     }
 }
