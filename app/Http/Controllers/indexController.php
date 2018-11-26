@@ -10,6 +10,35 @@ use Illuminate\Support\Facades\Auth;
 
 class indexController extends Controller
 {
+    public function getCarInfo(Request $request)
+    {
+        $carId = $this->getLatestCarId();
+        // if($carId == 0) {
+        //     return redirect('/add/car/');
+        // }
+
+        if(isset($request->carId)){
+            $carId = $request->carId;
+        }
+
+        $fuelRecordModel = new fuelRecordModel();
+        $records = $fuelRecordModel->where('user_id', Auth::id())->where('car_id', $carId)->orderBy('date', 'desc')->get();
+
+        $latestRate = 0.0;
+        $averageRate = 0.0;
+        if(count($records) > 1) {   //2件以上ないと燃費計測できないため。
+            $latestRate = $records[0]->fuel_rate;
+            $averageRate = $this->getAverageRate($records);
+        }
+
+        $carModel = new carModel();
+        $car = $carModel->where('id', $carId)->get();
+
+        $carName = $car[0]->car_name;
+
+        return ['latestRate' => sprintf('%.1f',$latestRate), 'averageRate' => sprintf('%.1f',$averageRate), 'carName' => $carName, 'carId' => $carId, 'history' => $records];
+
+    }
     //
     public function index(Request $request)
     {

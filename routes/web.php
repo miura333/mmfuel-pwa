@@ -37,3 +37,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', function () {
     return view('indexvue');
 })->middleware('auth');
+
+Route::get('/api/getCarInfo', 'indexController@getCarInfo')->middleware('auth');

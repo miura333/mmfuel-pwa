@@ -5,6 +5,13 @@ body {
     margin-bottom: 0;
 }
 
+.appWrapper {
+    position : absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+}
+
 .appHeader {
     width: 100%;
     height: 64px;

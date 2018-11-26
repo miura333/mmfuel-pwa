@@ -8,6 +8,7 @@
 import VueRouter from 'vue-router';
 
 import index from './components/index.vue';
+import history from './components/history.vue';
 
 // require('./bootstrap');
 require('../../public/css/mmfuel-pwa.css');
@@ -26,6 +27,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 
 const routes = [
     { path: '/', name: 'root-view', component: index },
+    { path: '/history', name: 'history-view', component: history },
     { path: '/testvue/', name: 'test-view', component: index }
 ];
 
@@ -41,11 +43,11 @@ const app = new Vue({
     router: router,
     watch: {
         '$route': function (to, from) {
-            // if (to.path == '/page2' && from.path == '/') {
-            //     this.pageTransition = 'forward';
-            // }else if(to.path == '/' && from.path == '/page2') {
-            //     this.pageTransition = 'back';
-            // }
+            if (to.path == '/history' && from.path == '/') {
+                this.pageTransition = 'forward';
+            }else if(to.path == '/' && from.path == '/history') {
+                this.pageTransition = 'back';
+            }
             // console.log(to.path+' '+from.path);
         }
     }
