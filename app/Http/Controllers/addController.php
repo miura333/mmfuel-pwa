@@ -47,7 +47,7 @@ class addController extends Controller
         $model->fuel_rate = $fuelRate;
         $model->save();
 
-        return redirect('/'.$request->carId);
+        //return redirect('/'.$request->carId);
     }
 
     public function addCar(Request $request)

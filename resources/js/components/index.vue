@@ -24,7 +24,7 @@
         </div>
         <div class="addButtonParent">
             <div class="addHistoryButton">
-                <div class="addHistoryButtonText"><a class="linkButtonText" href="/">add</a></div>
+                <div class="addHistoryButtonText"><router-link class="linkButtonText" :to="{name:'add-view', params:{carId:carId}}">add</router-link></div>
             </div>
         </div>
         <div class="historyButtonParent">
@@ -54,9 +54,9 @@ export default {
         var url = '/api/getCarInfo';
 
         var arrayCookies = self.getCookieArray();
-        var carId = arrayCookies["carId"];
-        if(carId != undefined) {
-            url += ('/' + String(carId));
+        var tmpCarId = arrayCookies["carId"];
+        if(tmpCarId != undefined) {
+            url += ('/' + String(tmpCarId));
         }
 
         axios.get(url).then(function(response){
