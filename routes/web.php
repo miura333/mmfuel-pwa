@@ -39,3 +39,4 @@ Route::get('/', function () {
 })->middleware('auth');
 
 Route::get('/api/getCarInfo', 'indexController@getCarInfo')->middleware('auth');
+Route::get('/api/getCarInfo/{carId}', 'indexController@getCarInfo')->middleware('auth');

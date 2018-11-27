@@ -9,6 +9,7 @@ import VueRouter from 'vue-router';
 
 import index from './components/index.vue';
 import history from './components/history.vue';
+import carList from './components/list.vue';
 
 // require('./bootstrap');
 require('../../public/css/mmfuel-pwa.css');
@@ -28,6 +29,7 @@ Vue.component('example-component', require('./components/ExampleComponent.vue'))
 const routes = [
     { path: '/', name: 'root-view', component: index },
     { path: '/history', name: 'history-view', component: history },
+    { path: '/list', name: 'carlist-view', component: carList },
     { path: '/testvue/', name: 'test-view', component: index }
 ];
 
@@ -43,11 +45,21 @@ const app = new Vue({
     router: router,
     watch: {
         '$route': function (to, from) {
-            if (to.path == '/history' && from.path == '/') {
-                this.pageTransition = 'forward';
-            }else if(to.path == '/' && from.path == '/history') {
+            if(to.path == '/') {
                 this.pageTransition = 'back';
+            }else{
+                this.pageTransition = 'forward';
             }
+            // if (to.path == '/history' && from.path == '/') {
+            //     this.pageTransition = 'forward';
+            // }else if(to.path == '/' && from.path == '/history') {
+            //     this.pageTransition = 'back';
+            // }else if(to.path == '/list' && from.path == '/') {
+            //     this.pageTransition = 'forward';
+            // }else if(to.path == '/' && from.path == '/') {
+            //     this.pageTransition = 'forward';
+            // }
+
             // console.log(to.path+' '+from.path);
         }
     }

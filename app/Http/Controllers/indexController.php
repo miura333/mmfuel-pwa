@@ -39,9 +39,10 @@ class indexController extends Controller
         $carName = $car[0]->car_name;
 
         //hisotryは整形する
+        $carModelAll = new carModel();
+        $carAll = $carModelAll->where('user_id', Auth::id())->orderBy('id', 'asc')->get();
 
-
-        return ['latestRate' => sprintf('%.1f',$latestRate), 'averageRate' => sprintf('%.1f',$averageRate), 'carName' => $carName, 'carId' => $carId, 'history' => $this->formatHistory($records)];
+        return ['latestRate' => sprintf('%.1f',$latestRate), 'averageRate' => sprintf('%.1f',$averageRate), 'carName' => $carName, 'carId' => $carId, 'history' => $this->formatHistory($records), 'carList' => $carAll];
 
     }
     //

@@ -19,7 +19,7 @@
                         <tr>
                             <td width="5%"></td>
                             <td width="45%">{{history.date}}</td>
-                            <td width="45%" class="historyTextFuelRate">{{history.fuel_rate}}</td>
+                            <td width="45%" class="historyTextFuelRate">{{history.fuel_rate}} km/l</td>
                             <td width="5%"></td>
                         </tr>
                     </table>

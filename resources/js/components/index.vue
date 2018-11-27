@@ -6,7 +6,7 @@
                     <tr>
                         <td width="20%"></td>
                         <td width="60%">{{carName}}</td>
-                        <td width="20%"></td>
+                        <td width="20%"><router-link class="linkBackButtonText" :to="{name:'carlist-view', params:{cars:cars}}">List</router-link></td>
                     </tr>
                 </table>
             </div>
@@ -45,12 +45,20 @@ export default {
             averageRate: '',
             carName: '',
             carId: 0,
-            histories: []
+            histories: [],
+            cars: []
         };
     },
     created() {
         var self = this;
         var url = '/api/getCarInfo';
+
+        var arrayCookies = self.getCookieArray();
+        var carId = arrayCookies["carId"];
+        if(carId != undefined) {
+            url += ('/' + String(carId));
+        }
+
         axios.get(url).then(function(response){
             console.log(response);
             self.latestRate = response.data.latestRate;
@@ -58,7 +66,21 @@ export default {
             self.carName = response.data.carName;
             self.carId = response.data.carId;
             self.histories = response.data.history;
+            self.cars = response.data.carList;
         });
+    },
+    methods: {
+        getCookieArray(){
+            var arr = new Array();
+            if(document.cookie != ''){
+                var tmp = document.cookie.split('; ');
+                for(var i=0;i<tmp.length;i++){
+                    var data = tmp[i].split('=');
+                    arr[data[0]] = decodeURIComponent(data[1]);
+                }
+            }
+            return arr;
+        }
     }
 };
 </script>
