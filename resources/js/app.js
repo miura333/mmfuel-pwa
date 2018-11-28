@@ -27,6 +27,7 @@ window.Vue = require('vue');
 Vue.use(VueRouter);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('v-loading', require('./components/indicator.vue'));
 
 const routes = [
     { path: '/', name: 'root-view', component: index },

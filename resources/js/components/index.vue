@@ -14,13 +14,19 @@
         <div class="appHeaderBorder"></div>
         <div class="latestTitle latestAndAverageTitleText">Latest</div>
         <div class="latestValue">
-            <em class="fuelValueText">{{latestRate}}</em>
-            <em class="fuelUnitText">km/l</em>
+            <v-loading :show="showIndicator"></v-loading>
+            <div v-if="showIndicator == false">
+                <em class="fuelValueText">{{latestRate}}</em>
+                <em class="fuelUnitText">km/l</em>
+            </div>
         </div>
         <div class="averageTitle latestAndAverageTitleText">Average</div>
         <div class="averageValue">
-            <em class="fuelValueText">{{averageRate}}</em>
-            <em class="fuelUnitText">km/l</em>
+            <v-loading :show="showIndicator"></v-loading>
+            <div v-if="showIndicator == false">
+                <em class="fuelValueText">{{averageRate}}</em>
+                <em class="fuelUnitText">km/l</em>
+            </div>
         </div>
         <div class="addButtonParent">
             <div class="addHistoryButton">
@@ -46,7 +52,8 @@ export default {
             carName: '',
             carId: 0,
             histories: [],
-            cars: []
+            cars: [],
+            showIndicator: false
         };
     },
     created() {
@@ -59,6 +66,8 @@ export default {
             url += ('/' + String(tmpCarId));
         }
 
+        this.showIndicator = true;
+
         axios.get(url).then(function(response){
             console.log(response);
             self.latestRate = response.data.latestRate;
@@ -67,6 +76,8 @@ export default {
             self.carId = response.data.carId;
             self.histories = response.data.history;
             self.cars = response.data.carList;
+
+            self.showIndicator = false;
         });
     },
     methods: {

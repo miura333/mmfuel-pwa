@@ -1751,7 +1751,7 @@ function updateLink (link, options, obj) {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(15);
-module.exports = __webpack_require__(72);
+module.exports = __webpack_require__(77);
 
 
 /***/ }),
@@ -1800,6 +1800,7 @@ window.Vue = __webpack_require__(66);
 Vue.use(__WEBPACK_IMPORTED_MODULE_0_vue_router__["a" /* default */]);
 
 Vue.component('example-component', __webpack_require__(69));
+Vue.component('v-loading', __webpack_require__(72));
 
 var routes = [{ path: '/', name: 'root-view', component: __WEBPACK_IMPORTED_MODULE_1__components_index_vue___default.a }, { path: '/history', name: 'history-view', component: __WEBPACK_IMPORTED_MODULE_2__components_history_vue___default.a }, { path: '/list', name: 'carlist-view', component: __WEBPACK_IMPORTED_MODULE_3__components_list_vue___default.a }, { path: '/add', name: 'add-view', component: __WEBPACK_IMPORTED_MODULE_4__components_add_vue___default.a }, { path: '/addcar', name: 'addcar-view', component: __WEBPACK_IMPORTED_MODULE_5__components_addcar_vue___default.a }, { path: '/testvue/', name: 'test-view', component: __WEBPACK_IMPORTED_MODULE_1__components_index_vue___default.a }];
 
@@ -4546,7 +4547,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -4629,6 +4630,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -4640,7 +4647,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             carName: '',
             carId: 0,
             histories: [],
-            cars: []
+            cars: [],
+            showIndicator: false
         };
     },
     created: function created() {
@@ -4653,6 +4661,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             url += '/' + String(tmpCarId);
         }
 
+        this.showIndicator = true;
+
         __WEBPACK_IMPORTED_MODULE_0_axios___default.a.get(url).then(function (response) {
             console.log(response);
             self.latestRate = response.data.latestRate;
@@ -4661,6 +4671,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             self.carId = response.data.carId;
             self.histories = response.data.history;
             self.cars = response.data.carList;
+
+            self.showIndicator = false;
         });
     },
 
@@ -5608,25 +5620,47 @@ var render = function() {
       _vm._v("Latest")
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "latestValue" }, [
-      _c("em", { staticClass: "fuelValueText" }, [
-        _vm._v(_vm._s(_vm.latestRate))
-      ]),
-      _vm._v(" "),
-      _c("em", { staticClass: "fuelUnitText" }, [_vm._v("km/l")])
-    ]),
+    _c(
+      "div",
+      { staticClass: "latestValue" },
+      [
+        _c("v-loading", { attrs: { show: _vm.showIndicator } }),
+        _vm._v(" "),
+        _vm.showIndicator == false
+          ? _c("div", [
+              _c("em", { staticClass: "fuelValueText" }, [
+                _vm._v(_vm._s(_vm.latestRate))
+              ]),
+              _vm._v(" "),
+              _c("em", { staticClass: "fuelUnitText" }, [_vm._v("km/l")])
+            ])
+          : _vm._e()
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "averageTitle latestAndAverageTitleText" }, [
       _vm._v("Average")
     ]),
     _vm._v(" "),
-    _c("div", { staticClass: "averageValue" }, [
-      _c("em", { staticClass: "fuelValueText" }, [
-        _vm._v(_vm._s(_vm.averageRate))
-      ]),
-      _vm._v(" "),
-      _c("em", { staticClass: "fuelUnitText" }, [_vm._v("km/l")])
-    ]),
+    _c(
+      "div",
+      { staticClass: "averageValue" },
+      [
+        _c("v-loading", { attrs: { show: _vm.showIndicator } }),
+        _vm._v(" "),
+        _vm.showIndicator == false
+          ? _c("div", [
+              _c("em", { staticClass: "fuelValueText" }, [
+                _vm._v(_vm._s(_vm.averageRate))
+              ]),
+              _vm._v(" "),
+              _c("em", { staticClass: "fuelUnitText" }, [_vm._v("km/l")])
+            ])
+          : _vm._e()
+      ],
+      1
+    ),
     _vm._v(" "),
     _c("div", { staticClass: "addButtonParent" }, [
       _c("div", { staticClass: "addHistoryButton" }, [
@@ -18276,6 +18310,149 @@ if (false) {
 
 /***/ }),
 /* 72 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(73)
+}
+var normalizeComponent = __webpack_require__(2)
+/* script */
+var __vue_script__ = __webpack_require__(75)
+/* template */
+var __vue_template__ = __webpack_require__(76)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/components/indicator.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-2ad0ce58", Component.options)
+  } else {
+    hotAPI.reload("data-v-2ad0ce58", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 73 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(74);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(3)("72d9e52c", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ad0ce58\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./indicator.vue", function() {
+     var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-2ad0ce58\",\"scoped\":false,\"hasInlineConfig\":true}!../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./indicator.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 74 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(1)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 75 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        text: {
+            default: '',
+            type: String
+        },
+        show: {
+            default: false,
+            type: Boolean
+        }
+    }
+});
+
+/***/ }),
+/* 76 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm.show
+    ? _c("div", [
+        _c("img", { attrs: { src: "/img/ajax-loader.gif" } }),
+        _vm._v(" "),
+        _c("span", { domProps: { textContent: _vm._s(_vm.text) } })
+      ])
+    : _vm._e()
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-2ad0ce58", module.exports)
+  }
+}
+
+/***/ }),
+/* 77 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
