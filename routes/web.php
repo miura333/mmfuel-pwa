@@ -32,7 +32,7 @@ Route::post('add/fuel/', 'addController@add')->middleware('auth');
 // Route::get('add/car/', function () {
 //     return view('addcar');
 // })->middleware('auth');
-// Route::post('add/car/', 'addController@addCar')->middleware('auth');
+Route::post('add/car/', 'addController@addCar')->middleware('auth');
 
 Route::get('/', function () {
     return view('indexvue');

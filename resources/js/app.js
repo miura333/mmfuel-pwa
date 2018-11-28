@@ -11,6 +11,7 @@ import index from './components/index.vue';
 import history from './components/history.vue';
 import carList from './components/list.vue';
 import add from './components/add.vue';
+import addCar from './components/addcar.vue';
 
 // require('./bootstrap');
 require('../../public/css/mmfuel-pwa.css');
@@ -32,6 +33,7 @@ const routes = [
     { path: '/history', name: 'history-view', component: history },
     { path: '/list', name: 'carlist-view', component: carList },
     { path: '/add', name: 'add-view', component: add },
+    { path: '/addcar', name: 'addcar-view', component: addCar },
     { path: '/testvue/', name: 'test-view', component: index }
 ];
 

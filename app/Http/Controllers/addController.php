@@ -59,6 +59,7 @@ class addController extends Controller
         $model->car_name = $request->carName;
         $model->save();
 
-        return redirect('/'.$model->id);
+        return $model->id;
+        //return redirect('/'.$model->id);
     }
 }

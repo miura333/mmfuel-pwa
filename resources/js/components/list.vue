@@ -6,7 +6,7 @@
                     <tr>
                         <td width="20%"><router-link class="linkBackButtonText" :to="{name:'root-view'}">Back</router-link></td>
                         <td width="60%">List</td>
-                        <td width="20%"><router-link class="linkBackButtonText" :to="{name:'root-view'}">Add</router-link></td>
+                        <td width="20%"><router-link class="linkBackButtonText" :to="{name:'addcar-view'}">Add</router-link></td>
                     </tr>
                 </table>
             </div>
