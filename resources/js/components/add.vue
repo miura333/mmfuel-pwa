@@ -14,17 +14,17 @@
         <div class="appHeaderBorder"></div>
         <form>
             <div class="historyCell">
-                <input type="text" name="" v-model="fuelData.trip" class="addInputForm addInputFormText" placeholder="trip">
+                <input type="tel" name="" v-model="fuelData.trip" class="addInputForm addInputFormText" placeholder="trip">
             </div>
             <div class="appHeaderBorder"></div>
             <div class="historyCell">
-                <input type="text" name="" v-model="fuelData.fuelNumber" class="addInputFormFuelNumber addInputFormText">
+                <input type="tel" name="" v-model="fuelData.fuelNumber" class="addInputFormFuelNumber addInputFormText">
                 .
-                <input type="text" name="" v-model="fuelData.fuelDecimal" class="addInputFormFuelDecimal addInputFormText">
+                <input type="tel" name="" v-model="fuelData.fuelDecimal" class="addInputFormFuelDecimal addInputFormText">
             </div>
             <div class="appHeaderBorder"></div>
             <div class="historyCell">
-                <input type="text" name="" v-model="fuelData.price" class="addInputForm addInputFormText" placeholder="price">
+                <input type="tel" name="" v-model="fuelData.price" class="addInputForm addInputFormText" placeholder="price">
             </div>
         </form>
     </div>
@@ -61,7 +61,7 @@ export default {
             params.append('price', this.fuelData.price);
             params.append('carId', this.fuelData.carId);
 
-            var url = '/add/fuel/';
+            var url = '/add/fuel';
 
             axios.post(url, params).then(function(response){
                 self.$router.push({ name: 'root-view'});

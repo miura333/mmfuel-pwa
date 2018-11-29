@@ -19,6 +19,8 @@
         <link rel="apple-touch-icon" href="./icon-120.png" sizes="120x120"/>
         <link rel="apple-touch-icon" href="./icon-180.png" sizes="180x180"/>
 
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         <title>Laravel</title>
     </head>
     <body>

@@ -6358,7 +6358,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
             params.append('price', this.fuelData.price);
             params.append('carId', this.fuelData.carId);
 
-            var url = '/add/fuel/';
+            var url = '/add/fuel';
 
             __WEBPACK_IMPORTED_MODULE_0_axios___default.a.post(url, params).then(function (response) {
                 self.$router.push({ name: 'root-view' });
@@ -6431,7 +6431,7 @@ var render = function() {
             }
           ],
           staticClass: "addInputForm addInputFormText",
-          attrs: { type: "text", name: "", placeholder: "trip" },
+          attrs: { type: "tel", name: "", placeholder: "trip" },
           domProps: { value: _vm.fuelData.trip },
           on: {
             input: function($event) {
@@ -6457,7 +6457,7 @@ var render = function() {
             }
           ],
           staticClass: "addInputFormFuelNumber addInputFormText",
-          attrs: { type: "text", name: "" },
+          attrs: { type: "tel", name: "" },
           domProps: { value: _vm.fuelData.fuelNumber },
           on: {
             input: function($event) {
@@ -6479,7 +6479,7 @@ var render = function() {
             }
           ],
           staticClass: "addInputFormFuelDecimal addInputFormText",
-          attrs: { type: "text", name: "" },
+          attrs: { type: "tel", name: "" },
           domProps: { value: _vm.fuelData.fuelDecimal },
           on: {
             input: function($event) {
@@ -6505,7 +6505,7 @@ var render = function() {
             }
           ],
           staticClass: "addInputForm addInputFormText",
-          attrs: { type: "text", name: "", placeholder: "price" },
+          attrs: { type: "tel", name: "", placeholder: "price" },
           domProps: { value: _vm.fuelData.price },
           on: {
             input: function($event) {
