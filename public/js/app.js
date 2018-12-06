@@ -6955,7 +6955,7 @@ exports = module.exports = __webpack_require__(1)(false);
 
 
 // module
-exports.push([module.i, ".forward-enter-active,\n.forward-leave-active {\n  /* アニメーションの時間、イージングなどを設定 */\n  transition: transform 500ms;\n}\n\n.forward-enter {\n  transform: translateX(100%);\n}\n\n.forward-enter-to {\n  transform: translateX(0%);\n}\n\n.forward-leave {\n  transform: translateX(0%);\n}\n\n.forward-leave-to {\n  transform: translateX(-100%);\n}\n\n.back-enter-active,\n.back-leave-active {\n  /* アニメーションの時間、イージングなどを設定 */\n  transition: transform 500ms;\n}\n\n.back-enter {\n  transform: translateX(-100%);\n}\n\n.back-enter-to {\n  transform: translateX(0%);\n}\n\n.back-leave {\n  transform: translateX(0%);\n}\n\n.back-leave-to {\n  transform: translateX(100%);\n}\n", ""]);
+exports.push([module.i, ".forward-enter-active,\n.forward-leave-active {\n  /* アニメーションの時間、イージングなどを設定 */\n  transition: transform 250ms;\n}\n\n.forward-enter {\n  transform: translateX(100%);\n}\n\n.forward-enter-to {\n  transform: translateX(0%);\n}\n\n.forward-leave {\n  transform: translateX(0%);\n}\n\n.forward-leave-to {\n  transform: translateX(-100%);\n}\n\n.back-enter-active,\n.back-leave-active {\n  /* アニメーションの時間、イージングなどを設定 */\n  transition: transform 250ms;\n}\n\n.back-enter {\n  transform: translateX(-100%);\n}\n\n.back-enter-to {\n  transform: translateX(0%);\n}\n\n.back-leave {\n  transform: translateX(0%);\n}\n\n.back-leave-to {\n  transform: translateX(100%);\n}\n", ""]);
 
 // exports
 

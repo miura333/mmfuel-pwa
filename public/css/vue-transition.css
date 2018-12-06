@@ -1,7 +1,7 @@
 .forward-enter-active,
 .forward-leave-active {
   /* アニメーションの時間、イージングなどを設定 */
-  transition: transform 500ms;
+  transition: transform 250ms;
 }
 
 .forward-enter {
@@ -23,7 +23,7 @@
 .back-enter-active,
 .back-leave-active {
   /* アニメーションの時間、イージングなどを設定 */
-  transition: transform 500ms;
+  transition: transform 250ms;
 }
 
 .back-enter {

@@ -16,6 +16,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
+        <meta http-equiv="Pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache">
+
         <link rel="apple-touch-icon" href="./icon-120.png" sizes="120x120"/>
         <link rel="apple-touch-icon" href="./icon-180.png" sizes="180x180"/>
 
