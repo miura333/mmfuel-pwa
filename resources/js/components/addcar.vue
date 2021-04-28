@@ -41,7 +41,7 @@ export default {
             let params = new URLSearchParams();
             params.append('carName', this.carData.carName);
 
-            var url = '/add/car/';
+            var url = '/add/car';
 
             axios.post(url, params).then(function(response){
                 console.log(response);
