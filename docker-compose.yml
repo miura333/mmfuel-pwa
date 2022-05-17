@@ -1,0 +1,37 @@
+version: '3'
+services:
+    web:
+        image: nginx:1.20.1
+        platform: linux/x86_64
+        ports:
+            - "8000:80"
+        depends_on: # 追加
+            - app
+        volumes:
+            - ./docker/web/default.conf:/etc/nginx/conf.d/default.conf
+            - .:/var/www/html
+    app:
+        build: ./docker/php
+        depends_on:
+            - mysql
+        volumes:
+            - .:/var/www/html
+            - ./docker/php/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+        command: >
+            bash -c 'cd Laravel &&
+            cd .. &&
+            php-fpm'
+    mysql:
+        image: mysql:5.7
+        platform: linux/x86_64
+        environment:
+            MYSQL_DATABASE: mmfuel
+            MYSQL_USER: homestead
+            MYSQL_PASSWORD: secret
+            MYSQL_ROOT_PASSWORD: secret
+        ports:
+            - "3306:3306"
+        volumes:
+            - mysql-mmfuel:/var/lib/mysql
+volumes:
+    mysql-mmfuel:
